@@ -1,0 +1,14 @@
+{
+  "apps": 100,
+  "dominant_auth": {
+    "label": "API key",
+    "share": 0.54
+  },
+  "pct_self_serve": 0.783,
+  "easy_wins": 28,
+  "official_mcp": 40,
+  "top_blocker": "insufficient evidence",
+  "composio_connected": 42,
+  "immediate_candidates": 51,
+  "outreach_needed": 6
+}

@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-11-23T13:38:13.565705+00:00",
+  "method": "web-fetch verification: direct HTTP fetch of live docs pages + keyword matching",
+  "total_checked": 10,
+  "passed": 7,
+  "failed": 0,
+  "error": 3,
+  "accuracy": 1.0,
+  "results": [
+    {
+      "id": 1,
+      "app": "Salesforce",
+      "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_oauth.htm",
+      "http_status": 403,
+      "claim_field": "auth",
+      "claim_value": [
+        "OAuth2",
+        "Bearer token"
+      ],
+      "verdict": "ERROR",
+      "evidence_found": "",
+      "notes": "HTTP 403 \u2014 could not fetch page"
+    },
+    {
+      "id": 4,
+      "app": "Attio",
+      "url": "https://developers.attio.com/docs/authentication",
+      "http_status": 0,
+      "claim_field": "auth",
+      "claim_value": [
+        "Bearer token"
+      ],
+      "verdict": "ERROR",
+      "evidence_found": "",
+      "notes": "HTTP 0 \u2014 could not fetch page"
+    },
+    {
+      "id": 11,
+      "app": "Zendesk",
+      "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+      "http_status": 200,
+      "claim_field": "auth",
+      "claim_value": [
+        "API key",
+        "Basic",
+        "OAuth2"
+      ],
+      "verdict": "PASS",
+      "evidence_found": "\u2026using basic authentication or api tokens, you will have to migrate to oauth access tokens for improved securit\u2026 \u2026uests. zendesk supports using oauth access tokens to authenticate api requests. note: if you're an existing ze\u2026 ",
+      "notes": "Keywords confirmed on page: ['api token', 'oauth', 'basic']"
+    },
+    {
+      "id": 13,
+      "app": "Freshdesk",
+      "url": "https://developers.freshdesk.com/api/#authentication",
+      "http_status": 200,
+      "claim_field": "auth",
+      "claim_value": [
+        "API key",
+        "Basic"
+      ],
+      "verdict": "PASS",
+      "evidence_found": "\u2026ount /api/v2/agents/[id] list api keys /api/v2/agents/[id]/api_keys create an api key /api/v2/agents/[id]/api_\u2026 \u20265 6 7 8 9 10 11 # group with basic settings curl -v -u yourapikey:x -h \"content-type: application/json\" -x po\u2026 ",
+      "notes": "Keywords confirmed on page: ['api key', 'basic']"
+    },
+    {
+      "id": 21,
+      "app": "Slack",
+      "url": "https://api.slack.com/authentication/oauth-v2",
+      "http_status": 200,
+      "claim_field": "self_serve",
+      "claim_value": "self-serve",
+      "verdict": "PASS",
+      "evidence_found": "\u2026installing via oauth authorization code flow | slack developer docs guide skip to main content\u2026 \u2026authorization code flow slack apps are installed with a v2 oauth 2.0 flow. your app can act with its own ident\u2026 ",
+      "notes": "Keywords confirmed on page: ['oauth', 'app']"
+    },
+    {
+      "id": 61,
+      "app": "GitHub",
+      "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "http_status": 200,
+      "claim_field": "auth",
+      "claim_value": [
+        "Bearer token",
+        "OAuth2"
+      ],
+      "verdict": "PASS",
+      "evidence_found": "\u2026get a token: you can create a personal access token, generate a token with a github app, or use the built-in g\u2026 \u2026pes to choose, see scopes for oauth apps . personal access tokens act as your identity (limited by the scopes\u2026 ",
+      "notes": "Keywords confirmed on page: ['personal access token', 'oauth']"
+    },
+    {
+      "id": 70,
+      "app": "Sentry",
+      "url": "https://docs.sentry.io/api/auth/",
+      "http_status": 200,
+      "claim_field": "auth",
+      "claim_value": [
+        "Bearer token"
+      ],
+      "verdict": "PASS",
+      "evidence_found": "\u2026copy page api authentication auth tokens authentication tokens are passed using an auth header, and are used\u2026 \u2026opied curl -h 'authorization: bearer {token}' https://sentry.io/api/0/organizations/ { organization_slug } /pr\u2026 ",
+      "notes": "Keywords confirmed on page: ['auth token', 'bearer']"
+    },
+    {
+      "id": 81,
+      "app": "Stripe",
+      "url": "https://stripe.com/docs/api/authentication",
+      "http_status": 200,
+      "claim_field": "auth",
+      "claim_value": [
+        "API key"
+      ],
+      "verdict": "PASS",
+      "evidence_found": "\u2026markdown the stripe api uses api keys to authenticate requests. you can view and manage your api keys in the\u2026 \u2026stripe dashboard . test mode secret keys start with sk _ test _ and have unrestricted access to their sandbox\u2026 ",
+      "notes": "Keywords confirmed on page: ['api key', 'secret key']"
+    },
+    {
+      "id": 90,
+      "app": "PitchBook",
+      "url": "https://pitchbook.com/pitchbook-api",
+      "http_status": 403,
+      "claim_field": "self_serve",
+      "claim_value": "partner-gated",
+      "verdict": "ERROR",
+      "evidence_found": "",
+      "notes": "HTTP 403 \u2014 could not fetch page"
+    },
+    {
+      "id": 22,
+      "app": "Twilio",
+      "url": "https://www.twilio.com/docs/usage/api/account",
+      "http_status": 200,
+      "claim_field": "auth",
+      "claim_value": [
+        "API key",
+        "Basic"
+      ],
+      "verdict": "PASS",
+      "evidence_found": "\u2026om \"twilio\"; 3 4 // find your account sid at twilio.com/console 5 // provision api keys at twilio.com/console/\u2026 \u2026can use your account sid and auth token 8 const accountsid = process.env. twilio_account_sid ; 9 const apikey\u2026 ",
+      "notes": "Keywords confirmed on page: ['account sid', 'auth token']"
+    }
+  ]
+}

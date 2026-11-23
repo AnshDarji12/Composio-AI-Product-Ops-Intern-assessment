@@ -1,0 +1,27 @@
+{
+  "done": {
+    "1": {
+      "confidence": 0.9,
+      "attempts": 1,
+      "seconds": 51.8
+    },
+    "2": {
+      "confidence": 1.0,
+      "attempts": 1,
+      "seconds": 46.4
+    },
+    "3": {
+      "confidence": 1.0,
+      "attempts": 1,
+      "seconds": 49.5
+    },
+    "5": {
+      "confidence": 1.0,
+      "attempts": 2,
+      "seconds": 83.9
+    }
+  },
+  "skipped": {
+    "4": "1 validation error for ResearchRow\n  Invalid JSON: EOF while parsing a list at line 12 column 0 [type=json_invalid, input_value='{\\n  \"app\": \"Attio\",\\n  ...ce\",\\n  \"evidence\": [\\n', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/json_invalid"
+  }
+}

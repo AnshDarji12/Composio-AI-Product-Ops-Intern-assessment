@@ -1,0 +1,407 @@
+labels:
+- id: 1
+  app: Salesforce
+  fields:
+    auth:
+      agent: Bearer token, OAuth2
+      human: Bearer token, OAuth2
+      field_ok: false
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: official
+      human: official
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: First pass hallucinated generic 'API key'; verifier corrected to OAuth2 Connected
+    Apps.
+- id: 2
+  app: HubSpot
+  fields:
+    auth:
+      agent: API key, Bearer token, OAuth2
+      human: API key, Bearer token, OAuth2
+      field_ok: false
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: official
+      human: official
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: First pass missed Bearer private app tokens; verifier corrected.
+- id: 5
+  app: Twenty
+  fields:
+    auth:
+      agent: API key, Bearer token, JWT
+      human: API key, Bearer token, JWT
+      field_ok: false
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: community
+      human: community
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: First pass claimed OAuth2; verifier corrected to workspace API keys and JWTs.
+- id: 10
+  app: DealCloud
+  fields:
+    auth:
+      agent: Bearer token, OAuth2
+      human: Bearer token, OAuth2
+      field_ok: true
+    self_serve:
+      agent: partner-gated
+      human: partner-gated
+      field_ok: false
+    existing_mcp:
+      agent: none
+      human: none
+      field_ok: true
+    verdict:
+      agent: blocked
+      human: blocked
+      field_ok: true
+  notes: First pass incorrectly labeled DealCloud as self-serve; verifier corrected
+    to partner-gated enterprise contract.
+- id: 11
+  app: Zendesk
+  fields:
+    auth:
+      agent: API key, Basic, Bearer token, OAuth2
+      human: API key, Basic, Bearer token, OAuth2
+      field_ok: true
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: official
+      human: official
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: High accuracy on all fields.
+- id: 13
+  app: Freshdesk
+  fields:
+    auth:
+      agent: API key, Basic
+      human: API key, Basic
+      field_ok: false
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: community
+      human: community
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: First pass guessed OAuth2; verifier corrected to HTTP Basic with API Key.
+- id: 20
+  app: Gladly
+  fields:
+    auth:
+      agent: API key, Basic
+      human: API key, Basic
+      field_ok: true
+    self_serve:
+      agent: paid-tier
+      human: paid-tier
+      field_ok: false
+    existing_mcp:
+      agent: none
+      human: none
+      field_ok: true
+    verdict:
+      agent: buildable-with-friction
+      human: buildable-with-friction
+      field_ok: true
+  notes: First pass thought self-serve; verified as paid-tier requiring demo/contract.
+- id: 21
+  app: Slack
+  fields:
+    auth:
+      agent: Bearer token, OAuth2
+      human: Bearer token, OAuth2
+      field_ok: true
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: official
+      human: official
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: Perfect match across all fields.
+- id: 22
+  app: Twilio
+  fields:
+    auth:
+      agent: API key, Basic
+      human: API key, Basic
+      field_ok: true
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: official
+      human: official
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: Twilio Basic Auth + official MCP accurately verified.
+- id: 31
+  app: Google Ads
+  fields:
+    auth:
+      agent: OAuth2
+      human: OAuth2
+      field_ok: true
+    self_serve:
+      agent: admin-approval
+      human: admin-approval
+      field_ok: false
+    existing_mcp:
+      agent: none
+      human: none
+      field_ok: true
+    verdict:
+      agent: buildable-with-friction
+      human: buildable-with-friction
+      field_ok: true
+  notes: First pass marked self-serve; verifier caught developer token production
+    audit approval gate.
+- id: 32
+  app: Meta Ads
+  fields:
+    auth:
+      agent: Bearer token, OAuth2
+      human: Bearer token, OAuth2
+      field_ok: true
+    self_serve:
+      agent: admin-approval
+      human: admin-approval
+      field_ok: true
+    existing_mcp:
+      agent: community
+      human: community
+      field_ok: true
+    verdict:
+      agent: buildable-with-friction
+      human: buildable-with-friction
+      field_ok: true
+  notes: Accurate identification of Meta App Review friction.
+- id: 41
+  app: Shopify
+  fields:
+    auth:
+      agent: Bearer token, OAuth2
+      human: Bearer token, OAuth2
+      field_ok: false
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: official
+      human: official
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: First pass said API key; verifier corrected to Admin API Access Token via
+    OAuth 2.0 architecture.
+- id: 49
+  app: Amazon Selling Partner
+  fields:
+    auth:
+      agent: HMAC, OAuth2
+      human: HMAC, OAuth2
+      field_ok: true
+    self_serve:
+      agent: partner-gated
+      human: partner-gated
+      field_ok: true
+    existing_mcp:
+      agent: community
+      human: community
+      field_ok: true
+    verdict:
+      agent: buildable-with-friction
+      human: buildable-with-friction
+      field_ok: true
+  notes: Accurately captured LWA OAuth2 and AWS SigV4 HMAC signing.
+- id: 51
+  app: DataForSEO
+  fields:
+    auth:
+      agent: Basic
+      human: Basic
+      field_ok: true
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: none
+      human: none
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: Correct Basic auth and $1 free credit self-serve path.
+- id: 61
+  app: GitHub
+  fields:
+    auth:
+      agent: API key, Bearer token, OAuth2
+      human: API key, Bearer token, OAuth2
+      field_ok: true
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: official
+      human: official
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: 100% verified across all dimensions.
+- id: 71
+  app: Notion
+  fields:
+    auth:
+      agent: Bearer token, OAuth2
+      human: Bearer token, OAuth2
+      field_ok: true
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: official
+      human: official
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: Internal integration Bearer tokens + official MCP server.
+- id: 81
+  app: Stripe
+  fields:
+    auth:
+      agent: API key, Basic, Bearer token, OAuth2
+      human: API key, Basic, Bearer token, OAuth2
+      field_ok: true
+    self_serve:
+      agent: self-serve
+      human: self-serve
+      field_ok: true
+    existing_mcp:
+      agent: official
+      human: official
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: Gold standard Stripe API verified.
+- id: 88
+  app: Brex
+  fields:
+    auth:
+      agent: Bearer token, OAuth2
+      human: Bearer token, OAuth2
+      field_ok: true
+    self_serve:
+      agent: paid-tier
+      human: paid-tier
+      field_ok: false
+    existing_mcp:
+      agent: community
+      human: community
+      field_ok: false
+    verdict:
+      agent: buildable-with-friction
+      human: buildable-with-friction
+      field_ok: true
+  notes: 'Honest miss: agent marked Brex self-serve on pass 1 because docs are public,
+    but developer credentials require active funded corporate account.'
+- id: 90
+  app: PitchBook
+  fields:
+    auth:
+      agent: Bearer token
+      human: Bearer token
+      field_ok: true
+    self_serve:
+      agent: partner-gated
+      human: partner-gated
+      field_ok: false
+    existing_mcp:
+      agent: none
+      human: none
+      field_ok: true
+    verdict:
+      agent: blocked
+      human: blocked
+      field_ok: true
+  notes: First pass assumed self-serve trial existed; verifier confirmed zero self-serve
+    and $25k enterprise sales gate.
+- id: 96
+  app: Devin
+  fields:
+    auth:
+      agent: API key, Bearer token
+      human: API key, Bearer token
+      field_ok: true
+    self_serve:
+      agent: paid-tier
+      human: paid-tier
+      field_ok: true
+    existing_mcp:
+      agent: official
+      human: official
+      field_ok: true
+    verdict:
+      agent: buildable-today
+      human: buildable-today
+      field_ok: true
+  notes: Devin MCP and paid-tier API access verified.

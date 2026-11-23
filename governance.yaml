@@ -1,0 +1,46 @@
+# ══════════════════════════════════════════════════════════════════
+# Governance & Security policy - loaded by src/governance/engine.py
+# Every LLM call, URL fetch and output row passes through this layer.
+# Edit policies here; no agent code changes required.
+# ══════════════════════════════════════════════════════════════════
+
+version: 1
+
+network:
+  require_https: true            # plain http:// URLs are refused
+  block_private_ips: true        # SSRF guard: refuse localhost / RFC1918 / link-local
+  blocked_hosts:                 # always refused (cloud metadata, loopback, etc.)
+    - localhost
+    - 127.0.0.1
+    - 0.0.0.0
+    - metadata.google.internal
+    - metadata.internal
+  respect_robots: true           # honour robots.txt before fetching docs pages
+  max_response_mb: 5             # refuse bodies larger than this
+  timeout_s: 20
+  max_redirect_hops: 3           # every hop is re-checked against policy
+
+llm:
+  allowed_models:                # only these models may be called
+    - gemini-2.5-flash           # free tier: ~10-15 RPM / 250 RPD (AI Studio key)
+    - gemini-2.0-flash
+  rpm: 60                        # client-side rate limit across rotated pool
+  max_calls_per_run: 1000        # budget for 100 apps across 15 rotated keys
+  max_tokens_per_run: 10000000   # token budget guard
+  temperature: 0.2
+  max_output_tokens: 8192
+  secret_scan_outputs: true      # scan every model response for leaked credentials
+
+data:
+  redact_pii: true               # strip emails/phones from stored evidence quotes
+  secret_scan: true              # scan stored rows for credential patterns
+  quarantine_on_flag: true       # flagged rows go to quarantine, never straight to output
+
+human_review:
+  confidence_threshold: 0.70     # rows below this are re-researched once, then quarantined
+  audit_sample_size: 20          # random sample exported for manual verification
+  max_retries: 1
+
+audit:
+  hash_chain: true               # tamper-evident JSONL (sha256 chained records)
+  log_dir: data/audit

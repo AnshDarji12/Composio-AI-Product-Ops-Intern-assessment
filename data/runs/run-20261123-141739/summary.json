@@ -1,0 +1,16 @@
+{
+  "run_id": "run-20261123-141739",
+  "finished_at": "2026-11-23T14:20:11+00:00",
+  "stats": {
+    "researched": 2,
+    "verified": 2,
+    "retried": 1,
+    "quarantined": 0,
+    "stored": 2,
+    "llm_calls": 5
+  },
+  "llm_budget": {
+    "calls_used": 5,
+    "tokens_used": 37296
+  }
+}

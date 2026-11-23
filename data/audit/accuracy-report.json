@@ -1,0 +1,168 @@
+{
+  "overall": {
+    "accuracy_v1_first_pass": 0.938,
+    "accuracy_v2_verified": 0.863,
+    "sampled_fields": 80
+  },
+  "per_field": {
+    "auth": {
+      "n": 20,
+      "accuracy_v1": 0.75,
+      "accuracy_v2": 0.75
+    },
+    "self_serve": {
+      "n": 20,
+      "accuracy_v1": 1.0,
+      "accuracy_v2": 0.75
+    },
+    "existing_mcp": {
+      "n": 20,
+      "accuracy_v1": 1.0,
+      "accuracy_v2": 0.95
+    },
+    "verdict": {
+      "n": 20,
+      "accuracy_v1": 1.0,
+      "accuracy_v2": 1.0
+    }
+  },
+  "misses": [
+    {
+      "id": 1,
+      "app": "Salesforce",
+      "field": "auth",
+      "human": "Bearer token, OAuth2",
+      "first_pass": [
+        "API key"
+      ],
+      "final": [],
+      "v1_hit": false,
+      "v2_hit": false
+    },
+    {
+      "id": 2,
+      "app": "HubSpot",
+      "field": "auth",
+      "human": "API key, Bearer token, OAuth2",
+      "first_pass": [
+        "API key"
+      ],
+      "final": [
+        "API key",
+        "OAuth2"
+      ],
+      "v1_hit": false,
+      "v2_hit": false
+    },
+    {
+      "id": 5,
+      "app": "Twenty",
+      "field": "auth",
+      "human": "API key, Bearer token, JWT",
+      "first_pass": [
+        "API key",
+        "Bearer token",
+        "OAuth2"
+      ],
+      "final": [
+        "OAuth2",
+        "API key",
+        "Bearer token"
+      ],
+      "v1_hit": false,
+      "v2_hit": false
+    },
+    {
+      "id": 10,
+      "app": "DealCloud",
+      "field": "self_serve",
+      "human": "partner-gated",
+      "first_pass": "partner-gated",
+      "final": "self-serve",
+      "v1_hit": true,
+      "v2_hit": false
+    },
+    {
+      "id": 13,
+      "app": "Freshdesk",
+      "field": "auth",
+      "human": "API key, Basic",
+      "first_pass": [
+        "OAuth2"
+      ],
+      "final": [
+        "API key"
+      ],
+      "v1_hit": false,
+      "v2_hit": false
+    },
+    {
+      "id": 20,
+      "app": "Gladly",
+      "field": "self_serve",
+      "human": "paid-tier",
+      "first_pass": "paid-tier",
+      "final": "admin-approval",
+      "v1_hit": true,
+      "v2_hit": false
+    },
+    {
+      "id": 31,
+      "app": "Google Ads",
+      "field": "self_serve",
+      "human": "admin-approval",
+      "first_pass": "admin-approval",
+      "final": "self-serve",
+      "v1_hit": true,
+      "v2_hit": false
+    },
+    {
+      "id": 41,
+      "app": "Shopify",
+      "field": "auth",
+      "human": "Bearer token, OAuth2",
+      "first_pass": [
+        "OAuth2",
+        "API key"
+      ],
+      "final": [
+        "OAuth2",
+        "Bearer token",
+        "Client ID/Secret",
+        "PKCE"
+      ],
+      "v1_hit": false,
+      "v2_hit": false
+    },
+    {
+      "id": 88,
+      "app": "Brex",
+      "field": "self_serve",
+      "human": "paid-tier",
+      "first_pass": "paid-tier",
+      "final": "admin-approval",
+      "v1_hit": true,
+      "v2_hit": false
+    },
+    {
+      "id": 88,
+      "app": "Brex",
+      "field": "existing_mcp",
+      "human": "community",
+      "first_pass": "community",
+      "final": "official",
+      "v1_hit": true,
+      "v2_hit": false
+    },
+    {
+      "id": 90,
+      "app": "PitchBook",
+      "field": "self_serve",
+      "human": "partner-gated",
+      "first_pass": "partner-gated",
+      "final": "self-serve",
+      "v1_hit": true,
+      "v2_hit": false
+    }
+  ]
+}

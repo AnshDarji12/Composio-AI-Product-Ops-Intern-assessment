@@ -1,0 +1,15 @@
+{
+  "done": {
+    "4": {
+      "confidence": 0.9,
+      "attempts": 2,
+      "seconds": 95.1
+    },
+    "5": {
+      "confidence": 1.0,
+      "attempts": 1,
+      "seconds": 54.9
+    }
+  },
+  "skipped": {}
+}
