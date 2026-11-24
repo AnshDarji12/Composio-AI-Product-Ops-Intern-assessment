@@ -1,4 +1,5 @@
 # Composio Research Agent
+![Uploading image.png…]()
 
 An **governed AI research pipeline** that researches 100 SaaS APIs, adversarially verifies every finding, and renders a self-contained case-study HTML page. Built for the Composio AI Product Ops take-home assignment.
 
