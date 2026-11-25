@@ -5,6 +5,8 @@ An **governed AI research pipeline** that researches 100 SaaS APIs, adversariall
 
 ## Architecture
 
+![Research Agent Architecture - 100-App Deep Research Pipeline](data/charts/architecture_diagram.jpg)
+
 ```
 DuckDuckGo search
       ↓
